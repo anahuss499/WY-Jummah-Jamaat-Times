@@ -131,7 +131,9 @@ function populatePostcodeFilter() {
 
 function setupEvents() {
   [searchInput, postcodeFilter, sortFilter].forEach((el) => el.addEventListener('input', render));
-  quickFinder.addEventListener('input', render);
+  quickFinder.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') render();
+  });
   findBtn.addEventListener('click', render);
   resetBtn.addEventListener('click', () => {
     searchInput.value = '';
