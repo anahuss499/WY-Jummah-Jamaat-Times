@@ -7,7 +7,7 @@ A clean, responsive mosque directory website with postcode grouping, search, fil
 Because the app loads JSON data client-side, run a local web server from the repository root:
 
 ```bash
-cd /tmp/workspace/anahuss499/WY-Jummah-Jamaat-Times
+cd path/to/WY-Jummah-Jamaat-Times
 python3 -m http.server 8000
 ```
 

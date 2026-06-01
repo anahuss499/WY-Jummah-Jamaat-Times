@@ -9,9 +9,10 @@ const resultMeta = document.getElementById('resultMeta');
 const lastUpdated = document.getElementById('lastUpdated');
 
 let dataset = [];
+const JUMMAH_TIME_NOT_SET = '99:99';
 
 const areaFromPostcode = (postcode) => (postcode || '').trim().split(' ')[0].toUpperCase();
-const firstJummahTime = (jummah) => (Array.isArray(jummah) && jummah.length ? jummah[0] : '99:99');
+const firstJummahTime = (jummah) => (Array.isArray(jummah) && jummah.length ? jummah[0] : JUMMAH_TIME_NOT_SET);
 
 const nextJummahForTime = (time) => {
   const now = new Date();
