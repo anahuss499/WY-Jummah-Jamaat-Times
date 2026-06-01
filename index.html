@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WY Jummah & Mosque Directory</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1>WY Jummah & Mosque Directory</h1>
+      <p class="subtitle">Find mosques by name, postcode area, and Jummah time.</p>
+      <div class="toolbar" role="search" aria-label="Mosque search and filters">
+        <label>
+          <span>Search mosque name</span>
+          <input id="searchInput" type="search" placeholder="Start typing a mosque name" autocomplete="off" />
+        </label>
+        <label>
+          <span>Postcode area</span>
+          <select id="postcodeFilter">
+            <option value="">All areas</option>
+          </select>
+        </label>
+        <label>
+          <span>Sort by</span>
+          <select id="sortFilter">
+            <option value="name">Name</option>
+            <option value="time">Jummah time</option>
+            <option value="postcode">Postcode</option>
+          </select>
+        </label>
+        <label>
+          <span>Quick area finder</span>
+          <input id="quickFinder" type="text" placeholder="e.g. LS2 or BD8" maxlength="6" />
+        </label>
+        <button id="findBtn" type="button">Find</button>
+        <button id="resetBtn" class="secondary" type="button">Reset</button>
+      </div>
+      <p id="resultMeta" class="meta" aria-live="polite"></p>
+      <p id="lastUpdated" class="meta"></p>
+    </div>
+  </header>
+
+  <main class="wrap" id="directory" aria-label="Mosque listing"></main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
