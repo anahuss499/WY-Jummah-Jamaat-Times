@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Durood Counter | West Yorkshire Jummah</title>
+<meta name="description" content="Read Durood Ibrahim and keep count of your recitations.">
+<link rel="icon" type="image/png" href="assets/images/Logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@400;600&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="quran.css">
+</head>
+<body>
+<nav class="reader-nav" aria-label="Site navigation">
+  <a href="index.html">Jummah times</a>
+  <a href="quran.html">Quran</a>
+  <a class="active" href="durood.html">Durood counter</a>
+</nav>
+<main class="counter-shell">
+  <header class="reader-header">
+    <img src="assets/images/Logo.png" alt="Mosque arches">
+    <div>
+      <p class="eyebrow">Recite with presence</p>
+      <h1>درود شریف</h1>
+      <p class="reader-subtitle">Durood Ibrahim</p>
+    </div>
+  </header>
+  <section class="durood-card" aria-labelledby="durood-title">
+    <div class="durood-options">
+      <label for="duroodSelect">Choose Durood
+        <select id="duroodSelect"></select>
+      </label>
+      <label for="targetSelect">Target
+        <select id="targetSelect">
+          <option value="33">33</option>
+          <option value="100" selected>100</option>
+          <option value="313">313</option>
+          <option value="1000">1,000</option>
+          <option value="custom">Custom</option>
+        </select>
+      </label>
+      <label class="custom-target" for="customTarget">Amount to recite
+        <input id="customTarget" type="number" min="1" step="1" value="100">
+      </label>
+      <label id="customDuroodWrap" class="custom-durood" for="customDurood" hidden>Your recitation
+        <textarea id="customDurood" rows="2" placeholder="Write what you want to recite"></textarea>
+      </label>
+    </div>
+    <h2 id="durood-title"></h2>
+    <p class="durood-text" id="duroodText"></p>
+    <div class="counter" id="counter" aria-live="polite" title="Click anywhere in this area to count">
+      <span class="count-label">Recitations</span>
+      <output id="count">0</output>
+      <progress id="progress" value="0" max="100"></progress>
+      <p class="target-status" id="targetStatus"></p>
+      <div class="counter-actions" dir="ltr">
+        <button id="minus" type="button" aria-label="Decrease count">−</button>
+        <button id="add" class="count-button" type="button">Count Durood</button>
+        <button id="reset" type="button">Reset</button>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="durood.js"></script>
+</body>
+</html>
