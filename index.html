@@ -1,81 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WY Jummah & Mosque Directory</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>West Yorkshire Jummah Jama'at Times</title>
+<meta name="description" content="Jummah jama'at times for masjids across West Yorkshire, updated weekly.">
+<link rel="icon" type="image/png" href="assets/images/Logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap">
-      <div class="header-content">
-        <div class="logo-section">
-          <img src="images/Logo.png" alt="WY Jummah Jamaat Logo" class="logo">
-        </div>
-        <div class="title-section">
-          <h1>WY Jummah & Mosque Directory</h1>
-          <p class="subtitle">Find mosques by name, postcode area, and Jummah time.</p>
-        </div>
-      </div>
-      <div class="toolbar" role="search" aria-label="Mosque search and filters">
-        <label>
-          <span>Search mosque name</span>
-          <input id="searchInput" type="search" placeholder="Start typing a mosque name" autocomplete="off" />
-        </label>
-        <label>
-          <span>Postcode area</span>
-          <select id="postcodeFilter">
-            <option value="">All areas</option>
-          </select>
-        </label>
-        <label>
-          <span>Sort by</span>
-          <select id="sortFilter">
-            <option value="name">Name</option>
-            <option value="time">Jummah time</option>
-            <option value="postcode">Postcode</option>
-          </select>
-        </label>
-        <label>
-          <span>Quick area finder</span>
-          <input id="quickFinder" type="text" placeholder="e.g. LS2 or BD8" maxlength="6" />
-        </label>
-        <button id="findBtn" type="button">Find</button>
-        <button id="resetBtn" class="secondary" type="button">Reset</button>
-      </div>
-      <p id="resultMeta" class="meta" aria-live="polite"></p>
-      <p id="lastUpdated" class="meta"></p>
-    </div>
-  </header>
+<nav class="site-nav" aria-label="Site navigation">
+  <a class="active" href="index.html">Jummah times</a>
+  <a href="quran.html">Quran</a>
+  <a href="durood.html">Durood counter</a>
+</nav>
+<header class="hero">
+  <img class="brand-logo" src="assets/images/Logo.png" alt="Mosque arches">
+  <div class="hero-title">
+    <span class="season" id="season"></span>
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+  </div>
+  <div class="datepill" id="datepill" aria-label="Jummah date"></div>
+</header>
+<p class="tagline" id="tagline"></p>
 
-  <main class="wrap" id="directory" aria-label="Mosque listing"></main>
+<div class="controls">
+  <input id="search" type="search" placeholder="Search masjid, street or postcode" aria-label="Search masjids">
+  <div class="toggles">
+    <button class="tog late" id="fLate" aria-pressed="false">Late jummah jama'ats</button>
+    <button class="tog ladies" id="fLadies" aria-pressed="false">Facilities for ladies</button>
+  </div>
+  <nav class="areas areas-mobile" id="areaNavMobile" aria-label="Jump to postcode on mobile"></nav>
+</div>
 
-  <section class="wrap social-section" aria-label="Follow our WhatsApp channels">
-    <h2>📱 Connect With Us</h2>
-    <p>Stay updated with the latest Jummah times, prayer schedules, and Islamic gatherings in West Yorkshire</p>
-    
-    <div class="social-channels">
-      <a href="https://whatsapp.com/channel/0029VaCjolbKmCPI6qJmWh0Z" target="_blank" rel="noopener noreferrer" class="social-channel">
-        <h3>🕌 Jummah Times</h3>
-        <p>Weekly Jummah prayer timings for all West Yorkshire mosques</p>
-        <span class="social-link">Join Channel</span>
-      </a>
+<div class="page-layout">
+  <aside class="postcode-panel" aria-labelledby="postcode-title">
+    <h2 id="postcode-title">Postcodes</h2>
+    <nav class="areas" id="areaNav" aria-label="Jump to postcode"></nav>
+  </aside>
+  <main id="list"></main>
+</div>
+<p class="empty" id="empty" hidden>No masjids match. Try a different search or clear the filters.</p>
 
-      <a href="https://whatsapp.com/channel/0029VaywcUS11ulHTpTJZa2g" target="_blank" rel="noopener noreferrer" class="social-channel">
-        <h3>⏰ Prayer Times</h3>
-        <p>Daily prayer schedules and timings for the entire region</p>
-        <span class="social-link">Join Channel</span>
-      </a>
+<section class="key" aria-label="Key">
+  <span class="k late">Late jummah jama'at</span>
+  <span class="k ladies">Facilities for ladies</span>
+  <span class="k upd">Updated jama'at times</span>
+</section>
 
-      <a href="https://whatsapp.com/channel/0029VawpjLJAzNc3ejL3gB2q" target="_blank" rel="noopener noreferrer" class="social-channel">
-        <h3>🌙 Events & Gatherings</h3>
-        <p>Islamic events and community gatherings (Ahlus Sunna Wal Jammah)</p>
-        <span class="social-link">Join Channel</span>
-      </a>
-    </div>
+<footer>
+  <p class="invite">Join &amp; invite others to maximise benefit &amp; to gain Sadqah Jariah</p>
+  <p class="contact">Suggestions &amp; corrections:
+    <a id="phone"></a> · <a id="email"></a></p>
+  <h3 class="connect">Connect with us</h3>
+  <div class="social" id="social"></div>
+  <section class="channels" aria-labelledby="channels-title">
+    <h3 id="channels-title">WhatsApp channels</h3>
+    <div id="whatsappChannels"></div>
   </section>
+  <p class="big">Covering the whole of West Yorkshire for your convenience so you never miss a Jummah</p>
+</footer>
 
-  <script src="app.js" defer></script>
+<dialog id="mosqueDialog" aria-labelledby="mosqueDialogTitle">
+  <button class="dialog-close" type="button" aria-label="Close mosque details">&times;</button>
+  <h2 id="mosqueDialogTitle"></h2>
+  <p id="mosqueDialogAddress"></p>
+  <div class="mosque-links" id="mosqueDialogLinks"></div>
+</dialog>
+
+<script src="qrcode.js"></script>
+<script src="data.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
